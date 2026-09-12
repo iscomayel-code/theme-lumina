@@ -1,10 +1,10 @@
 {
     "name": {
-        "ar": "رائد",
-        "en": "Theme Raed"
+        "ar": "لومينا",
+        "en": "Lumina"
     },
     "repository": "https://github.com/SallaApp/theme-raed",
-    "author_email": "support@salla.sa",
+    "author_email": "mayelearn@hotmail.com",
     "features": [
         "mega-menu",
         "fonts",
