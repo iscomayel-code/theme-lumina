@@ -98,10 +98,10 @@ importers:
         version: 3.4.19
       webpack:
         specifier: ^5.108.4
-        version: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+        version: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
       webpack-cli:
-        specifier: ^7.2.1
-        version: 7.2.1(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.4)
+        specifier: ^7.2.3
+        version: 7.2.3(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.4)
 
 packages:
 
@@ -2977,14 +2977,14 @@ packages:
     resolution: {integrity: sha512-6i/00NBjP4yGPs+caKSyRfpTF/8Torsu0MOW3mMzIbhgISFder8i7xbqgHlLMwJrdiN8ndBV3UA1/AfzPSr+jg==}
     engines: {node: '>=10.13.0'}
 
-  webpack-cli@7.2.1:
-    resolution: {integrity: sha512-YwSGbcZdfz12DM8JIseVPr3oBb09IgVCVc4vY3oDvZnI/mALTGPAP1QiqOi4/bBLSJrRHaqDIXeHcNA0+G38aw==}
+  webpack-cli@7.2.3:
+    resolution: {integrity: sha512-vDFU7jrfCctnN7jJQWPl+V26B51GLp11prVZXg50oeonsgeBzSTJEWmXkjHsOjTgMjlPOQM8GWLh33X9RN/0ow==}
     engines: {node: '>=20.9.0'}
     hasBin: true
     peerDependencies:
       js-yaml: ^4.0.0 || ^5.0.0
       json5: ^2.2.3
-      toml: ^3.0.0 || ^4.0.0
+      toml: ^3.0.0 || ^4.0.0 || ^5.0.0
       webpack: ^5.101.0
       webpack-bundle-analyzer: ^4.0.0 || ^5.0.0
       webpack-dev-server: ^5.0.0 || ^6.0.0
@@ -4189,7 +4189,7 @@ snapshots:
       infinite-scroll: 4.0.1
       jwt-decode: 4.0.0
       lang.js: 1.1.14
-      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
       websocket: 1.0.35(supports-color@8.1.1)
     transitivePeerDependencies:
       - '@jitsu/protocols'
@@ -4440,7 +4440,7 @@ snapshots:
       '@babel/core': 8.0.1
       find-up: 5.0.0
     optionalDependencies:
-      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
 
   babel-plugin-polyfill-corejs3@1.0.0(@babel/core@8.0.1):
     dependencies:
@@ -4560,7 +4560,7 @@ snapshots:
       schema-utils: 4.3.3
       serialize-javascript: 7.0.7
       tinyglobby: 0.2.17
-      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
 
   core-js-compat@3.49.0:
     dependencies:
@@ -4606,7 +4606,7 @@ snapshots:
       postcss-value-parser: 4.2.0
       semver: 7.8.5
     optionalDependencies:
-      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
 
   css-minimizer-webpack-plugin@8.0.0(csso@5.0.5)(webpack@5.108.4):
     dependencies:
@@ -4616,7 +4616,7 @@ snapshots:
       postcss: 8.5.16
       schema-utils: 4.3.3
       serialize-javascript: 7.0.7
-      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
     optionalDependencies:
       csso: 5.0.5
 
@@ -5166,7 +5166,7 @@ snapshots:
     dependencies:
       schema-utils: 4.3.3
       tapable: 2.3.3
-      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
 
   mini-svg-data-uri@1.4.4: {}
 
@@ -5180,7 +5180,7 @@ snapshots:
       jest-worker: 27.5.1
       schema-utils: 4.3.3
       terser: 5.48.0
-      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
     optionalDependencies:
       cssnano: 7.1.9(postcss@8.5.16)
       csso: 5.0.5
@@ -5450,7 +5450,7 @@ snapshots:
       postcss: 8.5.16
       semver: 7.8.5
     optionalDependencies:
-      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
     transitivePeerDependencies:
       - typescript
 
@@ -5805,7 +5805,7 @@ snapshots:
   sass-loader@17.0.0(sass@1.101.0)(webpack@5.108.4):
     optionalDependencies:
       sass: 1.101.0
-      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
 
   sass@1.101.0:
     dependencies:
@@ -5994,7 +5994,7 @@ snapshots:
     dependencies:
       graceful-fs: 4.2.11
 
-  webpack-cli@7.2.1(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.4):
+  webpack-cli@7.2.3(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.4):
     dependencies:
       '@discoveryjs/json-ext': 1.1.0
       commander: 14.0.3
@@ -6003,7 +6003,7 @@ snapshots:
       import-local: 3.2.0
       interpret: 3.1.1
       rechoir: 0.8.0
-      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1)
+      webpack: 5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3)
       webpack-merge: 6.0.1
     optionalDependencies:
       js-yaml: 4.3.0
@@ -6017,7 +6017,7 @@ snapshots:
 
   webpack-sources@3.5.1: {}
 
-  webpack@5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.1):
+  webpack@5.108.4(cssnano@7.1.9(postcss@8.5.16))(csso@5.0.5)(postcss@8.5.16)(webpack-cli@7.2.3):
     dependencies:
       '@types/estree': 1.0.9
       '@types/json-schema': 7.0.15
@@ -6042,7 +6042,7 @@ snapshots:
       watchpack: 2.5.2
       webpack-sources: 3.5.1
     optionalDependencies:
-      webpack-cli: 7.2.1(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.4)
+      webpack-cli: 7.2.3(js-yaml@4.3.0)(json5@2.2.3)(webpack@5.108.4)
     transitivePeerDependencies:
       - '@minify-html/node'
       - '@swc/core'
