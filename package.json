@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Custom Salla Twilight theme with an extended single-product page",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iscomayel-code/theme-lumina.git"
+  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "test": "echo \"Error: no test specified\" && exit 1",
