@@ -1,0 +1,57 @@
+{#
+    Comparison table — this product vs. a generic alternative.
+
+    Content source: twilight.json setting `lumina_compare_rows` (collection of
+    feature + two booleans). Column headings are their own settings so the merchant
+    can rename the "alternative" column without touching the theme.
+#}
+{% set rows = theme.settings.get('lumina_compare_rows', []) %}
+
+{% if theme.settings.get('lumina_compare_enabled', true) and rows|length %}
+    {% set ours_label   = theme.settings.get('lumina_compare_ours_label') %}
+    {% set theirs_label = theme.settings.get('lumina_compare_theirs_label') %}
+
+    <section class="lumina-section lumina-compare" data-testid="lumina-comparison">
+        <div class="container">
+            {% set heading = theme.settings.get('lumina_compare_title') %}
+            {% if heading %}
+                <h2 class="lumina-section__title">{{ heading }}</h2>
+            {% endif %}
+
+            <div class="lumina-compare__scroll">
+                <table class="lumina-compare__table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="lumina-compare__feature-head">
+                                <span class="sr-only">{{ trans('pages.products.description') }}</span>
+                            </th>
+                            <th scope="col" class="lumina-compare__col lumina-compare__col--ours">{{ ours_label|default(store.name) }}</th>
+                            <th scope="col" class="lumina-compare__col">{{ theirs_label }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in rows %}
+                            {% set feature = row.feature ?? attribute(row, 'lumina_compare_rows.feature') %}
+                            {% set ours    = row.ours    ?? attribute(row, 'lumina_compare_rows.ours') %}
+                            {% set theirs  = row.theirs  ?? attribute(row, 'lumina_compare_rows.theirs') %}
+
+                            {% if feature %}
+                                <tr>
+                                    <th scope="row" class="lumina-compare__feature">{{ feature }}</th>
+                                    <td class="lumina-compare__cell lumina-compare__cell--ours">
+                                        <i class="{{ ours ? 'sicon-check' : 'sicon-cancel' }} {{ ours ? 'is-yes' : 'is-no' }}"></i>
+                                        <span class="sr-only">{{ ours ? '✓' : '✕' }}</span>
+                                    </td>
+                                    <td class="lumina-compare__cell">
+                                        <i class="{{ theirs ? 'sicon-check' : 'sicon-cancel' }} {{ theirs ? 'is-yes' : 'is-no' }}"></i>
+                                        <span class="sr-only">{{ theirs ? '✓' : '✕' }}</span>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endif %}

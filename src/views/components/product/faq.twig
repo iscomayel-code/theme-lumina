@@ -1,0 +1,36 @@
+{#
+    FAQ accordion.
+
+    Built on <details>/<summary> so it is keyboard accessible and works with JavaScript
+    disabled; the `name` attribute makes the browser close the other rows natively where
+    supported, with no accordion script to ship.
+#}
+{% set items = theme.settings.get('lumina_faq_items', []) %}
+
+{% if theme.settings.get('lumina_faq_enabled', true) and items|length %}
+    <section class="lumina-section lumina-faq" data-testid="lumina-faq">
+        <div class="container">
+            {% set heading = theme.settings.get('lumina_faq_title') %}
+            {% if heading %}
+                <h2 class="lumina-section__title">{{ heading }}</h2>
+            {% endif %}
+
+            <div class="lumina-faq__list">
+                {% for item in items %}
+                    {% set question = item.question ?? attribute(item, 'lumina_faq_items.question') %}
+                    {% set answer   = item.answer   ?? attribute(item, 'lumina_faq_items.answer') %}
+
+                    {% if question %}
+                        <details class="lumina-faq__item" name="lumina-faq">
+                            <summary class="lumina-faq__question">
+                                <span>{{ question }}</span>
+                                <i class="lumina-faq__chevron sicon-keyboard_arrow_down" aria-hidden="true"></i>
+                            </summary>
+                            <div class="lumina-faq__answer">{{ answer|raw }}</div>
+                        </details>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endif %}

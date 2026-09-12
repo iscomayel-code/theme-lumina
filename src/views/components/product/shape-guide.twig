@@ -1,0 +1,53 @@
+{#
+    Visual shape/variant guide.
+
+    This is NOT decorative: every tile is rendered from a real entry in
+    `product.options[].details[]`, and clicking one selects that option value in the
+    live <salla-product-options> form (see assets/js/partials/shape-guide.js), so the
+    price and variant update exactly as if the shopper used the native selector.
+
+    Which option it binds to: the one whose name matches the `lumina_shapes_option_name`
+    setting; if that setting is empty, the first option of type `image`/`thumbnail`.
+    A product without a matching option simply renders nothing.
+#}
+{% set target_name = theme.settings.get('lumina_shapes_option_name') %}
+
+{% if theme.settings.get('lumina_shapes_enabled', true) and product.options|length %}
+    {% for option in product.options %}
+        {% set is_match = target_name
+            ? (option.name|lower|trim == target_name|lower|trim)
+            : (option.type in ['image', 'thumbnail']) %}
+
+        {% if is_match and option.details|length %}
+            <section class="lumina-section lumina-shapes"
+                     data-testid="lumina-shape-guide"
+                     data-option-id="{{ option.id }}">
+                <div class="container">
+                    {% set heading = theme.settings.get('lumina_shapes_title') %}
+                    <h2 class="lumina-section__title">{{ heading|default(option.name) }}</h2>
+
+                    <ul class="lumina-shapes__list" role="list">
+                        {% for detail in option.details %}
+                            <li class="lumina-shapes__item">
+                                <button type="button"
+                                        class="lumina-shapes__tile{{ detail.is_out ? ' is-out' : '' }}"
+                                        data-detail-id="{{ detail.id }}"
+                                        aria-pressed="{{ detail.is_selected ? 'true' : 'false' }}"
+                                        {{ detail.is_out ? 'disabled' : '' }}
+                                        title="{{ detail.full_name }}">
+                                    {% set thumb = detail.image ?? detail.option_value %}
+                                    {% if thumb and thumb starts with 'http' %}
+                                        <img class="lumina-shapes__image" src="{{ thumb }}" alt="{{ detail.name }}" loading="lazy" width="120" height="120">
+                                    {% elseif detail.color %}
+                                        <span class="lumina-shapes__swatch" style="background-color: {{ detail.color }}"></span>
+                                    {% endif %}
+                                    <span class="lumina-shapes__name">{{ detail.name }}</span>
+                                </button>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        {% endif %}
+    {% endfor %}
+{% endif %}

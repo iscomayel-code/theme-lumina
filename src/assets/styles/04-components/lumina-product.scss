@@ -1,0 +1,297 @@
+/**
+ * Custom single-product sections (trust badges, how-to-use, testimonial,
+ * shape guide, comparison, video, lifestyle photos, FAQ).
+ *
+ * Accents derive from --color-primary so the sections follow whatever brand colour the
+ * merchant picks in the dashboard; the soft tints below are only fallbacks for the
+ * surfaces that shouldn't be fully saturated.
+ *
+ * Spacing uses logical properties throughout, so the Arabic RTL layout in the reference
+ * mirrors without a separate stylesheet.
+ */
+
+.lumina-section,
+.lumina-badges {
+  --lumina-surface: #fdf6f2;
+  --lumina-border: rgba(0, 0, 0, 0.06);
+  --lumina-radius: 20px;
+}
+
+.lumina-section {
+  @apply py-8 sm:py-12;
+
+  &__title {
+    @apply text-lg sm:text-2xl font-bold text-center mb-6 sm:mb-8;
+    color: var(--color-primary-d, #272628);
+  }
+}
+
+/* Trust badges — sits directly under Add to Cart, inside the product column. */
+.lumina-badges {
+  @apply bg-white rounded-md p-5 mt-5;
+
+  &__list {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+  }
+
+  &__item {
+    @apply flex flex-col items-center text-center gap-2;
+  }
+
+  &__icon {
+    @apply flex items-center justify-center rounded-full overflow-hidden;
+    width: 56px;
+    height: 56px;
+    background: var(--lumina-surface);
+    color: var(--color-primary);
+
+    i {
+      @apply text-2xl;
+    }
+
+    img {
+      @apply w-full h-full object-cover;
+    }
+  }
+
+  &__label {
+    @apply text-xs leading-5 text-gray-700;
+  }
+}
+
+/* How to use — numbered, illustrated steps. */
+.lumina-howto {
+  background: var(--lumina-surface);
+
+  &__steps {
+    @apply grid gap-5 sm:gap-6;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  &__step {
+    @apply relative bg-white p-5 pt-8 text-center;
+    border-radius: var(--lumina-radius);
+  }
+
+  &__number {
+    @apply absolute flex items-center justify-center font-bold text-white rounded-full;
+    inset-block-start: -16px;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 34px;
+    background: var(--color-primary);
+  }
+
+  /* translateX flips sign under RTL, so the badge would drift off-centre without this. */
+  [dir='rtl'] &__number {
+    transform: translateX(50%);
+  }
+
+  &__media img {
+    @apply w-full object-cover mb-4;
+    border-radius: calc(var(--lumina-radius) - 8px);
+    aspect-ratio: 1 / 1;
+  }
+
+  &__text {
+    @apply text-sm leading-6 text-gray-700;
+  }
+}
+
+/* Highlighted testimonial. */
+.lumina-testimonial {
+  &__card {
+    @apply bg-white p-6 sm:p-8 text-center max-w-2xl mx-auto;
+    border-radius: var(--lumina-radius);
+    border: 1px solid var(--lumina-border);
+  }
+
+  &__avatar {
+    @apply rounded-full object-cover mx-auto mb-4;
+    width: 72px;
+    height: 72px;
+  }
+
+  &__quote {
+    @apply text-base leading-7 text-gray-700 mb-4;
+  }
+
+  &__meta {
+    @apply flex flex-col items-center gap-2;
+  }
+
+  &__name {
+    @apply font-bold text-gray-900;
+  }
+}
+
+/* Shape guide — real option values, so tiles read as controls. */
+.lumina-shapes {
+  &__list {
+    @apply flex flex-wrap justify-center gap-3 sm:gap-4;
+  }
+
+  &__tile {
+    @apply flex flex-col items-center gap-2 p-3 bg-white transition-all;
+    border-radius: var(--lumina-radius);
+    border: 2px solid transparent;
+    width: 108px;
+
+    &:hover:not(:disabled) {
+      border-color: var(--color-primary-l);
+    }
+
+    &[aria-pressed='true'] {
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    &.is-out {
+      @apply opacity-40 cursor-not-allowed;
+    }
+  }
+
+  &__image {
+    @apply object-cover rounded-full;
+    width: 72px;
+    height: 72px;
+  }
+
+  &__swatch {
+    @apply block rounded-full;
+    width: 72px;
+    height: 72px;
+  }
+
+  &__name {
+    @apply text-xs text-gray-700;
+  }
+}
+
+/* Comparison table. */
+.lumina-compare {
+  background: var(--lumina-surface);
+
+  &__scroll {
+    @apply overflow-x-auto;
+  }
+
+  &__table {
+    @apply w-full bg-white overflow-hidden;
+    border-radius: var(--lumina-radius);
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 320px;
+  }
+
+  th,
+  td {
+    @apply p-3 sm:p-4 text-sm;
+    border-block-end: 1px solid var(--lumina-border);
+  }
+
+  tr:last-child th,
+  tr:last-child td {
+    border-block-end: 0;
+  }
+
+  &__feature {
+    @apply text-start font-normal text-gray-700;
+  }
+
+  &__col {
+    @apply text-center font-bold text-gray-900;
+
+    &--ours {
+      color: var(--color-primary);
+      background: var(--lumina-surface);
+    }
+  }
+
+  &__cell {
+    @apply text-center;
+
+    &--ours {
+      background: var(--lumina-surface);
+    }
+
+    .is-yes {
+      color: #2bb673;
+    }
+
+    .is-no {
+      @apply text-gray-300;
+    }
+  }
+}
+
+/* Tutorial video. */
+.lumina-video {
+  &__frame {
+    @apply max-w-3xl mx-auto overflow-hidden;
+    border-radius: var(--lumina-radius);
+  }
+
+  lite-youtube {
+    @apply w-full;
+    border-radius: var(--lumina-radius);
+  }
+
+  &__file {
+    @apply w-full;
+    border-radius: var(--lumina-radius);
+  }
+}
+
+/* Lifestyle photography. */
+.lumina-gallery {
+  &__grid {
+    @apply grid gap-3 sm:gap-4;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  &__cell img {
+    @apply w-full object-cover;
+    border-radius: var(--lumina-radius);
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* FAQ accordion. */
+.lumina-faq {
+  background: var(--lumina-surface);
+
+  &__list {
+    @apply max-w-2xl mx-auto flex flex-col gap-3;
+  }
+
+  &__item {
+    @apply bg-white overflow-hidden;
+    border-radius: calc(var(--lumina-radius) - 6px);
+  }
+
+  &__question {
+    @apply flex items-center justify-between gap-3 p-4 cursor-pointer font-bold text-sm text-gray-900;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__chevron {
+    @apply transition-transform shrink-0;
+    color: var(--color-primary);
+  }
+
+  &[open] &__chevron,
+  &__item[open] &__chevron {
+    transform: rotate(180deg);
+  }
+
+  &__answer {
+    @apply px-4 pb-4 text-sm leading-6 text-gray-700;
+  }
+}

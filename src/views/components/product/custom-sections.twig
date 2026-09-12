@@ -1,0 +1,17 @@
+{#
+    Full-width custom sections for the single product page, in reference order.
+
+    Included once at the `product.single.before_customer_reviews` hook, which sits
+    outside the two-column product grid — so these sections span the full page width
+    and land between the product details and the native reviews list.
+
+    Each section renders nothing unless the merchant has given it content, so a fresh
+    install degrades to the stock product page rather than to a row of empty boxes.
+#}
+{% include 'components.product.how-to-use' %}
+{% include 'components.product.testimonial' %}
+{% include 'components.product.shape-guide' %}
+{% include 'components.product.comparison' %}
+{% include 'components.product.video' %}
+{% include 'components.product.lifestyle-photos' %}
+{% include 'components.product.faq' %}

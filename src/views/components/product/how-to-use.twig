@@ -1,0 +1,39 @@
+{#
+    "How to use" — numbered steps, each with an image and a short instruction.
+
+    Content source: twilight.json setting `lumina_howto_steps` (collection).
+    Step numbers are derived from the loop, so reordering in the customizer renumbers automatically.
+#}
+{% set steps = theme.settings.get('lumina_howto_steps', []) %}
+
+{% if theme.settings.get('lumina_howto_enabled', true) and steps|length %}
+    <section class="lumina-section lumina-howto" data-testid="lumina-how-to-use">
+        <div class="container">
+            {% set heading = theme.settings.get('lumina_howto_title') %}
+            {% if heading %}
+                <h2 class="lumina-section__title">{{ heading }}</h2>
+            {% endif %}
+
+            <ol class="lumina-howto__steps">
+                {% for step in steps %}
+                    {% set image = step.image ?? attribute(step, 'lumina_howto_steps.image') %}
+                    {% set text  = step.text  ?? attribute(step, 'lumina_howto_steps.text') %}
+
+                    {% if text or image %}
+                        <li class="lumina-howto__step">
+                            <span class="lumina-howto__number" aria-hidden="true">{{ loop.index }}</span>
+
+                            {% if image %}
+                                <div class="lumina-howto__media">
+                                    <img src="{{ image }}" alt="{{ text|striptags }}" loading="lazy" width="320" height="320">
+                                </div>
+                            {% endif %}
+
+                            <p class="lumina-howto__text">{{ text }}</p>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        </div>
+    </section>
+{% endif %}

@@ -280,6 +280,529 @@
             "required": false,
             "value": false,
             "selected": false
+        },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "lumina-line"
+        },
+        {
+            "type": "static",
+            "format": "description",
+            "id": "lumina-label",
+            "value": "<strong>أقسام صفحة المنتج المخصّصة</strong><br>تظهر هذه الأقسام في صفحة المنتج. أي قسم تتركه فارغاً لن يظهر للعملاء."
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "إظهار شارات الثقة",
+            "description": "صف الأيقونات الدائرية أسفل زر الإضافة للسلة",
+            "id": "lumina_badges_enabled",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": true
+        },
+        {
+            "id": "lumina_badges",
+            "type": "collection",
+            "format": "collection",
+            "required": false,
+            "minLength": 0,
+            "maxLength": 6,
+            "label": null,
+            "item_label": "شارة",
+            "value": [
+                {
+                    "lumina_badges.image": null,
+                    "lumina_badges.icon": "sicon-award-ribbon",
+                    "lumina_badges.title": "منتج أصلي 100%"
+                },
+                {
+                    "lumina_badges.image": null,
+                    "lumina_badges.icon": "sicon-shipping-fast",
+                    "lumina_badges.title": "شحن سريع"
+                },
+                {
+                    "lumina_badges.image": null,
+                    "lumina_badges.icon": "sicon-check-circle",
+                    "lumina_badges.title": "ضمان الجودة"
+                },
+                {
+                    "lumina_badges.image": null,
+                    "lumina_badges.icon": "sicon-thumbs-up",
+                    "lumina_badges.title": "سهل الاستخدام"
+                }
+            ],
+            "fields": [
+                {
+                    "type": "string",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "id": "lumina_badges.image",
+                    "label": "صورة الأيقونة",
+                    "format": "image",
+                    "required": false,
+                    "placeholder": null,
+                    "description": "* اختياري — إن تُركت فارغة ستُستخدم الأيقونة أدناه. المقاس المناسب 112×112 بكسل"
+                },
+                {
+                    "type": "string",
+                    "icon": "sicon-award-ribbon",
+                    "label": "أيقونة",
+                    "multilanguage": false,
+                    "id": "lumina_badges.icon",
+                    "value": null,
+                    "required": false,
+                    "format": "text",
+                    "description": null,
+                    "placeholder": "sicon-check-circle"
+                },
+                {
+                    "type": "string",
+                    "icon": "sicon-format-text-alt",
+                    "label": "النص",
+                    "multilanguage": true,
+                    "id": "lumina_badges.title",
+                    "value": null,
+                    "required": false,
+                    "format": "text",
+                    "description": null,
+                    "placeholder": "منتج أصلي 100%"
+                }
+            ]
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "إظهار قسم \"طريقة الاستخدام\"",
+            "description": null,
+            "id": "lumina_howto_enabled",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "icon": "sicon-format-text-alt",
+            "label": "عنوان قسم طريقة الاستخدام",
+            "multilanguage": true,
+            "id": "lumina_howto_title",
+            "value": "طريقة الاستخدام",
+            "required": false,
+            "format": "text",
+            "description": null,
+            "placeholder": "طريقة الاستخدام"
+        },
+        {
+            "id": "lumina_howto_steps",
+            "type": "collection",
+            "format": "collection",
+            "required": false,
+            "minLength": 0,
+            "maxLength": 8,
+            "label": null,
+            "item_label": "خطوة",
+            "value": [],
+            "fields": [
+                {
+                    "type": "string",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "id": "lumina_howto_steps.image",
+                    "label": "صورة الخطوة",
+                    "format": "image",
+                    "required": false,
+                    "placeholder": null,
+                    "description": "* المقاس المناسب للصورة هو 640×640 بكسل"
+                },
+                {
+                    "type": "string",
+                    "icon": "sicon-format-text-alt",
+                    "label": "شرح الخطوة",
+                    "multilanguage": true,
+                    "id": "lumina_howto_steps.text",
+                    "value": null,
+                    "required": false,
+                    "format": "textarea",
+                    "description": null,
+                    "placeholder": "اكتبي شرحاً مختصراً للخطوة..."
+                }
+            ]
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "إظهار رأي عميل مميّز",
+            "description": null,
+            "id": "lumina_testimonial_enabled",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "icon": "sicon-chat",
+            "label": "نص الرأي",
+            "multilanguage": true,
+            "id": "lumina_testimonial_quote",
+            "value": null,
+            "required": false,
+            "format": "textarea",
+            "description": null,
+            "placeholder": "اكتبي رأي العميلة هنا..."
+        },
+        {
+            "type": "string",
+            "icon": "sicon-format-text-alt",
+            "label": "اسم العميل",
+            "multilanguage": true,
+            "id": "lumina_testimonial_name",
+            "value": null,
+            "required": false,
+            "format": "text",
+            "description": null,
+            "placeholder": null
+        },
+        {
+            "type": "string",
+            "icon": "sicon-image",
+            "value": null,
+            "id": "lumina_testimonial_avatar",
+            "label": "صورة العميل",
+            "format": "image",
+            "required": false,
+            "placeholder": null,
+            "description": "* المقاس المناسب للصورة هو 144×144 بكسل"
+        },
+        {
+            "id": "lumina_testimonial_stars",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "عدد النجوم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-star",
+            "selected": [
+                {
+                    "label": "5",
+                    "value": "5",
+                    "key": "lumina-stars-5"
+                }
+            ],
+            "options": [
+                {
+                    "label": "5",
+                    "value": "5",
+                    "key": "lumina-stars-5"
+                },
+                {
+                    "label": "4",
+                    "value": "4",
+                    "key": "lumina-stars-4"
+                },
+                {
+                    "label": "3",
+                    "value": "3",
+                    "key": "lumina-stars-3"
+                },
+                {
+                    "label": "2",
+                    "value": "2",
+                    "key": "lumina-stars-2"
+                },
+                {
+                    "label": "1",
+                    "value": "1",
+                    "key": "lumina-stars-1"
+                }
+            ],
+            "source": "Manual",
+            "required": false
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "إظهار دليل الأشكال",
+            "description": null,
+            "id": "lumina_shapes_enabled",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "icon": "sicon-format-text-alt",
+            "label": "عنوان دليل الأشكال",
+            "multilanguage": true,
+            "id": "lumina_shapes_title",
+            "value": "اختاري الشكل المناسب",
+            "required": false,
+            "format": "text",
+            "description": null,
+            "placeholder": "اختاري الشكل المناسب"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-swap-fill",
+            "label": "اسم خيار المنتج المرتبط",
+            "multilanguage": false,
+            "id": "lumina_shapes_option_name",
+            "value": null,
+            "required": false,
+            "format": "text",
+            "description": "اكتبي اسم الخيار كما هو في إعدادات المنتج (مثال: الشكل). عند الضغط على صورة سيتم اختيار القيمة المطابقة فعلياً. اتركيه فارغاً لاستخدام أول خيار من نوع صورة.",
+            "placeholder": "الشكل"
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "إظهار جدول المقارنة",
+            "description": null,
+            "id": "lumina_compare_enabled",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "icon": "sicon-format-text-alt",
+            "label": "عنوان جدول المقارنة",
+            "multilanguage": true,
+            "id": "lumina_compare_title",
+            "value": "لماذا نحن؟",
+            "required": false,
+            "format": "text",
+            "description": null,
+            "placeholder": "لماذا نحن؟"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-format-text-alt",
+            "label": "اسم العمود الأول (منتجنا)",
+            "multilanguage": true,
+            "id": "lumina_compare_ours_label",
+            "value": "منتجنا",
+            "required": false,
+            "format": "text",
+            "description": null,
+            "placeholder": "منتجنا"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-format-text-alt",
+            "label": "اسم العمود الثاني (البديل)",
+            "multilanguage": true,
+            "id": "lumina_compare_theirs_label",
+            "value": "المنتجات الأخرى",
+            "required": false,
+            "format": "text",
+            "description": null,
+            "placeholder": "المنتجات الأخرى"
+        },
+        {
+            "id": "lumina_compare_rows",
+            "type": "collection",
+            "format": "collection",
+            "required": false,
+            "minLength": 0,
+            "maxLength": 12,
+            "label": null,
+            "item_label": "ميزة",
+            "value": [],
+            "fields": [
+                {
+                    "type": "string",
+                    "icon": "sicon-format-text-alt",
+                    "label": "اسم الميزة",
+                    "multilanguage": true,
+                    "id": "lumina_compare_rows.feature",
+                    "value": null,
+                    "required": false,
+                    "format": "text",
+                    "description": null,
+                    "placeholder": "خامات آمنة على الأظافر"
+                },
+                {
+                    "type": "boolean",
+                    "icon": "sicon-check",
+                    "label": "متوفرة في منتجنا",
+                    "description": null,
+                    "id": "lumina_compare_rows.ours",
+                    "format": "switch",
+                    "required": false,
+                    "value": true,
+                    "selected": true
+                },
+                {
+                    "type": "boolean",
+                    "icon": "sicon-cancel",
+                    "label": "متوفرة في المنتجات الأخرى",
+                    "description": null,
+                    "id": "lumina_compare_rows.theirs",
+                    "format": "switch",
+                    "required": false,
+                    "value": false,
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "إظهار الفيديو التعليمي",
+            "description": null,
+            "id": "lumina_video_enabled",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "icon": "sicon-format-text-alt",
+            "label": "عنوان الفيديو",
+            "multilanguage": true,
+            "id": "lumina_video_title",
+            "value": "شاهدي طريقة الاستخدام",
+            "required": false,
+            "format": "text",
+            "description": null,
+            "placeholder": "شاهدي طريقة الاستخدام"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-newspaper",
+            "label": "رابط الفيديو",
+            "multilanguage": false,
+            "id": "lumina_video_url",
+            "value": null,
+            "required": false,
+            "format": "text",
+            "description": "رابط يوتيوب أو رابط مباشر لملف فيديو. لا يتم تحميل المشغّل إلا عند الضغط على الفيديو.",
+            "placeholder": "https://www.youtube.com/watch?v=..."
+        },
+        {
+            "type": "string",
+            "icon": "sicon-image",
+            "value": null,
+            "id": "lumina_video_poster",
+            "label": "صورة الغلاف",
+            "format": "image",
+            "required": false,
+            "placeholder": null,
+            "description": "* اختيارية — المقاس المناسب 1280×720 بكسل"
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "إظهار الصور الإضافية",
+            "description": null,
+            "id": "lumina_gallery_enabled",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "icon": "sicon-format-text-alt",
+            "label": "عنوان الصور الإضافية",
+            "multilanguage": true,
+            "id": "lumina_gallery_title",
+            "value": null,
+            "required": false,
+            "format": "text",
+            "description": null,
+            "placeholder": "من أجواء المنتج"
+        },
+        {
+            "id": "lumina_gallery_images",
+            "type": "collection",
+            "format": "collection",
+            "required": false,
+            "minLength": 0,
+            "maxLength": 12,
+            "label": "إن تركتِ هذا القسم فارغاً سيتم عرض صور المنتج نفسها.",
+            "item_label": "صورة",
+            "value": [],
+            "fields": [
+                {
+                    "type": "string",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "id": "lumina_gallery_images.image",
+                    "label": "الصورة",
+                    "format": "image",
+                    "required": false,
+                    "placeholder": null,
+                    "description": "* المقاس المناسب للصورة هو 1200×900 بكسل"
+                }
+            ]
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "إظهار الأسئلة الشائعة",
+            "description": null,
+            "id": "lumina_faq_enabled",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "icon": "sicon-format-text-alt",
+            "label": "عنوان الأسئلة الشائعة",
+            "multilanguage": true,
+            "id": "lumina_faq_title",
+            "value": "الأسئلة الشائعة",
+            "required": false,
+            "format": "text",
+            "description": null,
+            "placeholder": "الأسئلة الشائعة"
+        },
+        {
+            "id": "lumina_faq_items",
+            "type": "collection",
+            "format": "collection",
+            "required": false,
+            "minLength": 0,
+            "maxLength": 15,
+            "label": null,
+            "item_label": "سؤال",
+            "value": [],
+            "fields": [
+                {
+                    "type": "string",
+                    "icon": "sicon-format-text-alt",
+                    "label": "السؤال",
+                    "multilanguage": true,
+                    "id": "lumina_faq_items.question",
+                    "value": null,
+                    "required": false,
+                    "format": "text",
+                    "description": null,
+                    "placeholder": "كم تدوم؟"
+                },
+                {
+                    "type": "string",
+                    "icon": "sicon-format-text-alt",
+                    "label": "الإجابة",
+                    "multilanguage": true,
+                    "id": "lumina_faq_items.answer",
+                    "value": null,
+                    "required": false,
+                    "format": "textarea",
+                    "description": null,
+                    "placeholder": "اكتبي الإجابة هنا..."
+                }
+            ]
         }
     ],
     "components": [
@@ -1146,4 +1669,3 @@
         "en": "A wide range of features to support your business and provide an exciting shopping experience for your customers"
     }
 }
-

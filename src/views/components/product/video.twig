@@ -1,0 +1,48 @@
+{#
+    Tutorial video — thumbnail + play button, player loaded only on click.
+
+    YouTube uses <lite-youtube> (already a theme dependency), which ships just a poster
+    image until the shopper clicks, so the real player never costs anything on load.
+    A direct file URL falls back to a native <video preload="none">.
+#}
+{% set url = theme.settings.get('lumina_video_url') %}
+
+{% if theme.settings.get('lumina_video_enabled', true) and url %}
+    {% set video_id = null %}
+    {% if 'youtu.be/' in url %}
+        {% set video_id = url|split('youtu.be/')|last|split('?')|first|split('&')|first %}
+    {% elseif 'v=' in url %}
+        {% set video_id = url|split('v=')|last|split('&')|first %}
+    {% elseif 'youtube.com/embed/' in url %}
+        {% set video_id = url|split('embed/')|last|split('?')|first %}
+    {% endif %}
+
+    <section class="lumina-section lumina-video" data-testid="lumina-video">
+        <div class="container">
+            {% set heading = theme.settings.get('lumina_video_title') %}
+            {% if heading %}
+                <h2 class="lumina-section__title">{{ heading }}</h2>
+            {% endif %}
+
+            {% set poster = theme.settings.get('lumina_video_poster') %}
+
+            <div class="lumina-video__frame">
+                {% if video_id %}
+                    <lite-youtube videoid="{{ video_id }}"
+                                  {% if poster %}style="background-image: url('{{ poster }}');"{% endif %}
+                                  params="rel=0&modestbranding=1&playsinline=1">
+                        <button type="button" class="lty-playbtn" aria-label="{{ heading|default('Play') }}"></button>
+                    </lite-youtube>
+                {% else %}
+                    <video class="lumina-video__file"
+                           controls
+                           preload="none"
+                           playsinline
+                           {% if poster %}poster="{{ poster }}"{% endif %}>
+                        <source src="{{ url }}">
+                    </video>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endif %}

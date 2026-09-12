@@ -1,0 +1,35 @@
+{#
+    Trust badges row — circular icons with short captions.
+
+    Content source: twilight.json setting `lumina_badges` (collection).
+    Rendered at the `product:single.description.end` hook, directly under Add to Cart.
+
+    Collection field ids are namespaced (`lumina_badges.title`), and the customizer
+    may hand them back either flattened or namespaced, so each field is read both ways.
+#}
+{% set badges = theme.settings.get('lumina_badges', []) %}
+
+{% if theme.settings.get('lumina_badges_enabled', true) and badges|length %}
+    <section class="lumina-badges" data-testid="lumina-trust-badges">
+        <ul class="lumina-badges__list">
+            {% for badge in badges %}
+                {% set icon  = badge.icon  ?? attribute(badge, 'lumina_badges.icon') %}
+                {% set image = badge.image ?? attribute(badge, 'lumina_badges.image') %}
+                {% set title = badge.title ?? attribute(badge, 'lumina_badges.title') %}
+
+                {% if title or image or icon %}
+                    <li class="lumina-badges__item">
+                        <span class="lumina-badges__icon" aria-hidden="true">
+                            {% if image %}
+                                <img src="{{ image }}" alt="" loading="lazy" width="56" height="56">
+                            {% else %}
+                                <i class="{{ icon|default('sicon-check-circle') }}"></i>
+                            {% endif %}
+                        </span>
+                        <span class="lumina-badges__label">{{ title }}</span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </section>
+{% endif %}

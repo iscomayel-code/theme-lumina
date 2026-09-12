@@ -1,0 +1,34 @@
+{#
+    Highlighted customer testimonial — avatar, name, quote.
+
+    Native reviews are rendered by the <salla-comments> web component, which fetches
+    client-side, so individual reviews are not reachable from Twig. The highlighted quote
+    is therefore a curated customizer field; the full native review list still renders
+    below this section, unchanged.
+#}
+{% set quote = theme.settings.get('lumina_testimonial_quote') %}
+
+{% if theme.settings.get('lumina_testimonial_enabled', true) and quote %}
+    {% set name   = theme.settings.get('lumina_testimonial_name') %}
+    {% set avatar = theme.settings.get('lumina_testimonial_avatar') %}
+    {% set stars  = theme.settings.get('lumina_testimonial_stars', 5) %}
+
+    <section class="lumina-section lumina-testimonial" data-testid="lumina-testimonial">
+        <div class="container">
+            <figure class="lumina-testimonial__card">
+                {% if avatar %}
+                    <img class="lumina-testimonial__avatar" src="{{ avatar }}" alt="{{ name }}" loading="lazy" width="72" height="72">
+                {% endif %}
+
+                <blockquote class="lumina-testimonial__quote">{{ quote }}</blockquote>
+
+                <figcaption class="lumina-testimonial__meta">
+                    {% if name %}
+                        <span class="lumina-testimonial__name">{{ name }}</span>
+                    {% endif %}
+                    <salla-rating-stars class="flex" size="small" value="{{ stars }}"></salla-rating-stars>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+{% endif %}

@@ -443,6 +443,7 @@
                 </form>
 
                 {% hook 'product:single.description.end' %}
+                {% include 'components.product.trust-badges' %}
                 <salla-quick-order data-testid="store-product-quick-order" class="mt-5 md:-mb-2 block"></salla-quick-order>
             </div>
         </div>
@@ -455,6 +456,8 @@
         Use this hook to inject content between the product info and the reviews block.
     #}
     <div class="s-blocks-wrapper s-before-reviews">{% hook 'product.single.before_customer_reviews' %}</div>
+
+    {% include 'components.product.custom-sections' %}
 
     {# Comments Area #}
     {% if store.settings.rating.show_on_product %}

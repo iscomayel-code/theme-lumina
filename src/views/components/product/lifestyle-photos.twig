@@ -1,0 +1,44 @@
+{#
+    Additional lifestyle / close-up photography.
+
+    Falls back to the product's own images when the merchant hasn't curated a separate
+    set, so the section is never empty on a product that already has good photography.
+    The first image is skipped — it is already the gallery's hero shot.
+#}
+{% set curated = theme.settings.get('lumina_gallery_images', []) %}
+
+{% if theme.settings.get('lumina_gallery_enabled', true) %}
+    {% set fallback = product.images|length > 1 ? product.images|slice(1) : [] %}
+
+    {% if curated|length or fallback|length %}
+        <section class="lumina-section lumina-gallery" data-testid="lumina-lifestyle-photos">
+            <div class="container">
+                {% set heading = theme.settings.get('lumina_gallery_title') %}
+                {% if heading %}
+                    <h2 class="lumina-section__title">{{ heading }}</h2>
+                {% endif %}
+
+                <div class="lumina-gallery__grid">
+                    {% if curated|length %}
+                        {% for item in curated %}
+                            {% set image = item.image ?? attribute(item, 'lumina_gallery_images.image') %}
+                            {% if image %}
+                                <figure class="lumina-gallery__cell">
+                                    <img src="{{ image }}" alt="{{ product.name }}" loading="lazy">
+                                </figure>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {% for image in fallback %}
+                            {% if image.type != 'video' %}
+                                <figure class="lumina-gallery__cell">
+                                    <img src="{{ image.url }}" alt="{{ image.alt|default(product.name) }}" loading="lazy">
+                                </figure>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endif %}
