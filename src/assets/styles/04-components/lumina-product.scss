@@ -286,7 +286,6 @@
     color: var(--color-primary);
   }
 
-  &[open] &__chevron,
   &__item[open] &__chevron {
     transform: rotate(180deg);
   }
