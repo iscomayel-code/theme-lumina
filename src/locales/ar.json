@@ -12,7 +12,8 @@
       "cart_options": "خيارات السلة"
     },
     "products": {
-      "barcode": "الباركود"
+      "barcode": "الباركود",
+      "comparison_feature": "الميزة"
     },
     "order": {
       "can_edit_or_delete_your_review_within": "يمكنك تعديل أو حذف تقييمك خلال",

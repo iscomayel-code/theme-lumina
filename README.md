@@ -1,217 +1,122 @@
-<div id="top"></div>
-<br />
-<div align="center"> 
-  <a href="https://salla.dev"> 
-    <img src="https://salla.dev/wp-content/uploads/2023/03/1-Light.png" alt="Logo"> 
-  </a>
-  <h1 align="center">Theme Raed</h1>
-  <p align="center">
-    Theme Raed is the starting point for developing Themes for Salla Stores. 
-    <br />
-    <a href="https://salla.dev/"><strong>Explore our blogs »</strong></a>
-    <br />
-    <a href="https://github.com/SallaApp/theme-raed/issues/new">Report Bug</a> · 
-    <a href="https://github.com/SallaApp/theme-raed/discussions/new">Request Feature</a> . <a href="https://t.me/salladev">&lt;/Salla Developers&gt;</a> . <a href="https://docs.salla.dev/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM">Official Documentation</a> 
-  </p>
-</div>
+# Lumina — Salla Twilight theme
 
+A custom [Salla](https://salla.dev) Twilight theme built on Salla's reference theme
+([theme-raed](https://github.com/SallaApp/theme-raed)), with an extended single-product
+page.
 
-<!-- TABLE OF CONTENTS -->
-<details open>
-  <summary>Table of Contents</summary>
-<ol>
-<li><a  href="#overview">Overview</a></li>
-<li><a  href="#getting-started">Getting Started</a>
-<ul>
-<li><a  href="#prerequisite">Prerequisite</a></li>
-<li><a  href="#install">Installation</a></li>
-</ul>
-</li>
-<li>
-<a  href="#usage">Usage</a>
-<ul>
-<li><a  href="#directory-structure">Directory Structure</a></li>
-<li><a  href="#theme-preview">Theme Preview</a></li>
-</ul>
-</li>
-<li>
-<a  href="#main-features">Main Features</a>
-<ul>
-<li><a  href="#theme-features">Theme Features</a></li>
-<li><a  href="#theme-components">Theme Components</a></li>
-</ul>
-</li>
-<li><a  href="#support">Support</a></li>
-<li><a  href="#contributing">Contributing</a></li>
-<li><a  href="#credits">Credits</a></li>
-<li><a  href="#license">License</a></li>
-</ol>
-</details>
+The upstream theme is kept as a git remote, so platform updates can be merged in:
 
-<br>
-
-## Overview
-Theme Raed is the starting point for developers to design themes for merchant stores that reflect the uniqueness of each store on the [Salla Platform](https://s.salla.sa). Custom themes will make it much easier for developers to tailor the merchant's store to its changing demands over time. It shipped as the default theme along with the [Twilight Themes](https://docs.salla.dev/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM), which is the Salla themes engine for developers to create customizable themes to be used on the [Salla Platform](https://salla.sa/site/).
-  
-## Getting Started 
-Developers can use Salla Theme Raed to not only design Salla themes with custom HTML/CSS/JS files and reusable custom UI components, but also to build custom actions that trigger JS events and hooks.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-### Prerequisite  
-- Basic understanding of HTML, CSS, JS, and the [Twig Template Engine](https://twig.symfony.com/).
-- Partner account at [Salla Partners Portal](https://salla.partners/) to create a demo store to publish and test your theme.
-- A [Github](https://github.com) account into which the theme can be synced.
-- Installing [Salla CLI](https://www.npmjs.com/package/@salla.sa/cli)
-
-### Install  
-Theme Raed gets installed by default upon installing the Twilight Themes. Twilight can be installed in two ways:
-
-- Through the [Salla Partners Portal](https://docs.salla.dev/doc-421877/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM#creating-theme-via-salla-partners-portal)
-
-- Through the [Salla CLI](https://docs.salla.dev/doc-422775/?nav=01HNA8QHCPJTCY5VSEZ616JCAK).
-
-Either way, it will trigger the installation of the Twilight Engine and the Theme Raed.  This a complete article for how to [install and create](https://docs.salla.dev/doc-421877/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM) the Twilight Themes.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Usage 
-Theme Raed will be installed as the default theme when you install Twilight. We'll look at how this theme's directories are set up and how to use the preview mode in the next section.
-
-### Directory structure  
-**Theme Raed** is a collection of files and folders that define the Salla Store presentation layer. Following is the directory structure for this starter theme.
-```shell
-+---scr
-    +---assets
-    |   +---images      
-    |   +---js      
-    |   +---styles         
-    +---locales
-    |       ar.json
-    |       en.json
-    +---views
-        +---components
-        |   +---footer
-        |   +---header
-        |   +---home
-        |   +---product
-        |   comments.twig
-        +---layouts
-        |       master.twig
-        +---pages
-            |   cart.twig
-            |   index.twig
-            |   loyalty.twig
-            |   page-single.twig
-            |   thank-you.twig
-            +---blog
-            |       index.twig
-            |       single.twig 
-            +---brands
-            |       index.twig
-            |       single.twig 
-            +---customer
-               |   notifications.twig
-               |   profile.twig
-               |   wishlist.twig
-               +---orders
-               |      index.twig
-               |      single.twig
-            +---partials
-                |   single-comment.twig
-                +---product
-                  |   card-full-image.twig
-                  |   card-mini.twig
-                  |   card.twig
-                  |   options.twig
-                  |   slider.twig
-            +---product
-            |       index.twig
-            |       single.twig
+```bash
+git fetch upstream && git merge upstream/master
 ```
 
-### Theme Preview  
-Using [Salla CLI](https://github.com/SallaApp/Salla-CLI), the developer can preview the theme as they are being developed.  The `preview` command helps the developer to get a look at the theme in live mode.
+## What's custom
 
-<!-- theme: info -->
-> To run the preview command, the developer must be in the theme's root folder.
+The product page mixes native Salla data with custom merchant-editable sections. Nothing
+on the page is hard-coded content.
 
-The developer can run the command `preview` and specify the configuration to view the theme:
+| # | Section | Source |
+|---|---------|--------|
+| 1 | Header | Native global header |
+| 2 | Image gallery | Native `product.images` via `<salla-slider type="thumbs">` |
+| 3 | Title / price / rating | Native `product.name`, `product.sale_price`, `product.rating` |
+| 4 | Variant selector | Native `product.options` via `<salla-product-options>` |
+| 5 | Quantity + Add to cart | Native `<salla-quantity-input>` + `<salla-add-product-button>` |
+| 6 | **Trust badges** | Custom — `lumina_badges` |
+| 7 | Description | Native `product.description` |
+| 8 | **How-to-use steps** | Custom — `lumina_howto_steps` |
+| 9 | **Testimonial** | Custom — `lumina_testimonial_*` |
+| 10 | **Shape guide** | Custom UI bound to **native** `product.options` |
+| 11 | **Comparison table** | Custom — `lumina_compare_rows` |
+| 12 | **Tutorial video** | Custom — `lumina_video_url` |
+| 13 | **Lifestyle photos** | Custom — `lumina_gallery_images`, falls back to `product.images` |
+| 14 | **FAQ** | Custom — `lumina_faq_items` |
+| 15 | Related products | Native `<salla-products-slider source="related">` |
+| 16 | Footer | Native global footer |
 
-```shell title = "Terminal"
-salla theme preview
+Bold rows are editable from **Salla dashboard → Theme → Customize**. Every custom section
+renders nothing until it has content, so an unconfigured store falls back to the stock
+product page rather than showing empty boxes.
 
-# Alias command for preview
-salla theme p
+### The shape guide is not decorative
+
+Tiles are rendered from real `product.options[].details[]` entries. Clicking one drives
+the matching control inside the live `<salla-product-options>` form and dispatches a
+`change`, so the price and selected variant update exactly as via the native selector
+(`src/assets/js/partials/shape-guide.js`).
+
+Bind it to a product option by entering that option's name in **اسم خيار المنتج المرتبط**.
+Left empty, it uses the first option of type `image`/`thumbnail`. Products without a
+matching option don't render the section.
+
+## Upgrade safety
+
+Custom markup lives in `src/views/components/product/`, not in core templates.
+`src/views/pages/product/single.twig` differs from upstream by **three lines** — two
+`{% include %}` statements placed at existing hook points, and one comment:
+
+| Hook | Injected |
+|------|----------|
+| `product:single.description.end` | `trust-badges.twig` (inside the product column, under Add to Cart) |
+| `product.single.before_customer_reviews` | `custom-sections.twig` (full width, above native reviews) |
+
+The `{% hook %}` tags themselves are left in place, so content injected by Salla apps
+still renders.
+
+### Why settings rather than product metadata
+
+Twig can only see `product.has_metadata` — the `<salla-metadata>` web component fetches
+and renders its own content client-side, so per-product metadata values can't be read
+into a custom layout server-side. Custom content is therefore driven by `twilight.json`
+customizer settings. Native `<salla-metadata>` still renders in its stock position for
+merchants who use it.
+
+## Local development
+
+Requires Node `^22.18.0 || >=24.11.0` and pnpm `>=10`.
+
+```bash
+pnpm install
+pnpm run watch        # development build, rebuilds on change
+pnpm run production   # minified build into public/
 ```
 
-On the other hand, the [Partners Portal]() lists the demo stores of the developer. The developer may select a demo store where the theme will be installed, after which the store will be instantly shown in the browser. This is a fantastic option for developers who want to see live updates to their themes appearing on the store right away.
+> This machine has Node 22.13.1 at `/usr/local/bin/node`, which is below the theme's
+> engine floor. Homebrew's Node (`/opt/homebrew/bin/node`) satisfies it — prefix build
+> commands with `export PATH="/opt/homebrew/bin:$PATH"`, or put that directory ahead of
+> `/usr/local/bin` in your shell profile.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## Previewing on a Salla demo store
 
-## Main Features 
-By default, Theme Raed home page displays a collection of Pre-Defined and Custom Components. These components are located in the [`src/views/components/home/`](https://github.com/SallaApp/theme-raed/tree/master/src/views/components/home) folder.
+```bash
+salla login             # browser OAuth against a Salla Partners account
+salla store create      # one-off: creates a demo store
+salla theme preview     # serves this theme against that store
+```
 
+`salla theme doctor` checks the toolchain. Nothing here touches a live store until
+`salla theme publish` is run deliberately.
 
-### Theme Features  
- Pre-Defined  Components, which are know as Theme Features, listed in the [twilight.json](https://github.com/SallaApp/theme-raed/blob/master/twilight.json) under the `features` section. Below is a list of these components.
- 
- | <div style="width:220px">Component</div>                                                       | Discription                                                                                                                                                                 |
- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | [Youtube](https://docs.salla.dev/doc-422582/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)                   | This component is responsible for displaying Youtube videos that the developer preselects.                                                                                  |
- | [Fixed Banner](https://docs.salla.dev/doc-422583/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)              | Fixed banner is the area in charge of displaying a banner that is fixated on the home page.                                                                                 |
- | [Testimonials](https://docs.salla.dev/doc-422584/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)              | This component displays testimonials that the developer preselects.                                                                                                         |
- | [Parallax backgorund](https://docs.salla.dev/doc-422585/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)       | This component displays products with a backgournd that zooms out slowly giving a 2D effect.                                                                                |
- | [Photos slider](https://docs.salla.dev/doc-422586/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)             | Photos are displayed in a slider by using this component.                                                                                                                   |
- | [Store Features](https://docs.salla.dev/doc-422587/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)            | This component is responsible for showcasing the store features such as a detailed product description, customer reviews of the product, and a fast guest check-out option. |
- | [Square photos](https://docs.salla.dev/doc-422588/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)             | Use this component to display photos in a square shape.                                                                                                                     |
- | [Fixed products](https://docs.salla.dev/doc-422589/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)            | Use this component to pin the products that you wish to have displayed always.                                                                                              |
- | [Products slider](https://docs.salla.dev/doc-422590/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)           | This slider component helps navigate between products vertically/horizontally.                                                                                              |
- | [Featured prodcuts style 1](https://docs.salla.dev/doc-422591/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM) | Using this component, featured products are exhibited in a pre-defined style.                                                                                               |
- | [Featured prodcuts style 2](https://docs.salla.dev/doc-422592/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM) | Using this component, featured products are exhibited in a pre-defined style.                                                                                               |
- | [Featured prodcuts style 3](https://docs.salla.dev/doc-422593/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM) | Using this component, featured products are exhibited in a pre-defined style.                                                                                               |
- | [Latest Products](https://docs.salla.dev/doc-422599/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)           | This component displays the latest products added to the store automatically.                                                                                               |
- | [Vertical menu with slider](https://docs.salla.dev/doc-422600/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM) | Used to display a menu for a group of the sub-pages' links in a vertical menu.                                                                                              |
+## Layout
 
-### Theme Components
-The Custom Components can be easily modified by the developer. They are known as Theme Components. Below is the list of the Custom Components that are shipped by default along with Theme Raed.
+```
+src/
+├── assets/
+│   ├── js/partials/shape-guide.js          # binds shape tiles to product options
+│   └── styles/04-components/lumina-product.scss
+└── views/
+    ├── components/product/                 # all custom sections
+    │   ├── custom-sections.twig            # composes the full-width stack
+    │   ├── trust-badges.twig
+    │   ├── how-to-use.twig
+    │   ├── testimonial.twig
+    │   ├── shape-guide.twig
+    │   ├── comparison.twig
+    │   ├── video.twig
+    │   ├── lifestyle-photos.twig
+    │   └── faq.twig
+    └── pages/product/single.twig           # +3 lines vs upstream
+```
 
-| Components                                                                                       | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| [Brands](https://docs.salla.dev/doc-422594/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)                      | Brands' logos of the store are displayed in this component section.                              |
-| [Enhanced Squared Image](https://docs.salla.dev/doc-422595/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)      | Enhanced images in a square shape are displayed with the help of this component.                 |
-| [Main links](https://docs.salla.dev/doc-422596/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)                  | This component helps to portray the store main links.                                            |
-| [Enhanced Slider](https://docs.salla.dev/doc-422597/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM)             | The slider component helps navigate vertically/horizontally.                                     |
-| [Slider products with header](https://docs.salla.dev/doc-422598/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM) | Slider products with header displays the products in a slide and give the sldier a header title. |
-
-
-## Support
-
-The team is always here to help you. Happen to face an issue? Want to report a bug? You can submit one here on Github using the [Issue Tracker](https://github.com/SallaApp/theme-raed/issues/new). If you still have any questions, please contact us via the [Telegram Bot](https://t.me/SallaSupportBot) or join in the Global Developer Community on [Telegram](https://t.me/salladev).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Contributing
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create.
-Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request.
-You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Credits
-- [Salla](https://github.com/sallaApp)
-- [All Contributors](../../contributors)
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## License
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-<p align="right">(<a href="#top">back to top</a>)</p>
+Customizer settings are defined under `settings` in `twilight.json`, all prefixed
+`lumina_`.
