@@ -314,38 +314,23 @@
             "item_label": "شارة",
             "value": [
                 {
-                    "lumina_badges.image": null,
                     "lumina_badges.icon": "sicon-award-ribbon",
                     "lumina_badges.title": "منتج أصلي 100%"
                 },
                 {
-                    "lumina_badges.image": null,
                     "lumina_badges.icon": "sicon-shipping-fast",
                     "lumina_badges.title": "شحن سريع"
                 },
                 {
-                    "lumina_badges.image": null,
                     "lumina_badges.icon": "sicon-check-circle",
                     "lumina_badges.title": "ضمان الجودة"
                 },
                 {
-                    "lumina_badges.image": null,
                     "lumina_badges.icon": "sicon-thumbs-up",
                     "lumina_badges.title": "سهل الاستخدام"
                 }
             ],
             "fields": [
-                {
-                    "type": "string",
-                    "icon": "sicon-image",
-                    "value": null,
-                    "id": "lumina_badges.image",
-                    "label": "صورة الأيقونة",
-                    "format": "image",
-                    "required": false,
-                    "placeholder": null,
-                    "description": "* اختياري — إن تُركت فارغة ستُستخدم الأيقونة أدناه. المقاس المناسب 112×112 بكسل"
-                },
                 {
                     "type": "string",
                     "icon": "sicon-award-ribbon",
@@ -406,19 +391,19 @@
             "item_label": "خطوة",
             "value": [
                 {
-                    "lumina_howto_steps.image": null,
+                    "lumina_howto_steps.image": "https://cdn.salla.sa/ZrBEO/3gOhYSaIhaHxhH2IHWxJYDl9JHwxP6dGKiZFSq4K.jpg",
                     "lumina_howto_steps.text": "نظّفي أظافرك جيداً وأزيلي أي طلاء قديم، ثم جفّفيها تماماً."
                 },
                 {
-                    "lumina_howto_steps.image": null,
+                    "lumina_howto_steps.image": "https://cdn.salla.sa/ZrBEO/MopzhoqpTkDObcKc8Q8n77AuydanfsGXdZO7iinH.jpg",
                     "lumina_howto_steps.text": "اختاري المقاس المناسب لكل ظفر من الأحجام المرفقة في الطقم."
                 },
                 {
-                    "lumina_howto_steps.image": null,
+                    "lumina_howto_steps.image": "https://cdn.salla.sa/mQgZlG/lkyDjYwvWJNmAQoGnLALLcUkm66rCCDbTyVlSGdH.jpg",
                     "lumina_howto_steps.text": "ضعي كمية صغيرة من اللاصق على ظفرك الطبيعي وعلى الظفر اللاصق."
                 },
                 {
-                    "lumina_howto_steps.image": null,
+                    "lumina_howto_steps.image": "https://cdn.salla.sa/mQgZlG/pzOCEw10wCfXeVSpKnL0Ifd1O9ZkTfnZ17RkE14R.jpg",
                     "lumina_howto_steps.text": "اضغطي بثبات لمدة ١٠ ثوانٍ، وتجنّبي الماء في أول ساعة."
                 }
             ],
@@ -486,7 +471,7 @@
         {
             "type": "string",
             "icon": "sicon-image",
-            "value": null,
+            "value": "https://cdn.salla.sa/mQgZlG/lkyDjYwvWJNmAQoGnLALLcUkm66rCCDbTyVlSGdH.jpg",
             "id": "lumina_testimonial_avatar",
             "label": "صورة العميل",
             "format": "image",
