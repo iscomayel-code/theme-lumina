@@ -404,7 +404,24 @@
             "maxLength": 8,
             "label": null,
             "item_label": "خطوة",
-            "value": [],
+            "value": [
+                {
+                    "lumina_howto_steps.image": null,
+                    "lumina_howto_steps.text": "نظّفي أظافرك جيداً وأزيلي أي طلاء قديم، ثم جفّفيها تماماً."
+                },
+                {
+                    "lumina_howto_steps.image": null,
+                    "lumina_howto_steps.text": "اختاري المقاس المناسب لكل ظفر من الأحجام المرفقة في الطقم."
+                },
+                {
+                    "lumina_howto_steps.image": null,
+                    "lumina_howto_steps.text": "ضعي كمية صغيرة من اللاصق على ظفرك الطبيعي وعلى الظفر اللاصق."
+                },
+                {
+                    "lumina_howto_steps.image": null,
+                    "lumina_howto_steps.text": "اضغطي بثبات لمدة ١٠ ثوانٍ، وتجنّبي الماء في أول ساعة."
+                }
+            ],
             "fields": [
                 {
                     "type": "string",
@@ -448,7 +465,7 @@
             "label": "نص الرأي",
             "multilanguage": true,
             "id": "lumina_testimonial_quote",
-            "value": null,
+            "value": "طلبتها لمناسبة وما توقعت تطلع بهالجمال! التركيب كان سهل والشكل طبيعي جداً، وصارت كل صديقاتي يسألوني عنها.",
             "required": false,
             "format": "textarea",
             "description": null,
@@ -460,7 +477,7 @@
             "label": "اسم العميل",
             "multilanguage": true,
             "id": "lumina_testimonial_name",
-            "value": null,
+            "value": "نورة العتيبي",
             "required": false,
             "format": "text",
             "description": null,
@@ -613,7 +630,33 @@
             "maxLength": 12,
             "label": null,
             "item_label": "ميزة",
-            "value": [],
+            "value": [
+                {
+                    "lumina_compare_rows.feature": "تركيب في أقل من ١٠ دقائق",
+                    "lumina_compare_rows.ours": true,
+                    "lumina_compare_rows.theirs": false
+                },
+                {
+                    "lumina_compare_rows.feature": "بدون أدوات أو جهاز أشعة",
+                    "lumina_compare_rows.ours": true,
+                    "lumina_compare_rows.theirs": false
+                },
+                {
+                    "lumina_compare_rows.feature": "لا تضر بالأظافر الطبيعية",
+                    "lumina_compare_rows.ours": true,
+                    "lumina_compare_rows.theirs": false
+                },
+                {
+                    "lumina_compare_rows.feature": "قابلة لإعادة الاستخدام",
+                    "lumina_compare_rows.ours": true,
+                    "lumina_compare_rows.theirs": false
+                },
+                {
+                    "lumina_compare_rows.feature": "مقاسات متعددة في الطقم",
+                    "lumina_compare_rows.ours": true,
+                    "lumina_compare_rows.theirs": true
+                }
+            ],
             "fields": [
                 {
                     "type": "string",
@@ -714,7 +757,7 @@
             "label": "عنوان الصور الإضافية",
             "multilanguage": true,
             "id": "lumina_gallery_title",
-            "value": null,
+            "value": "من أجواء المنتج",
             "required": false,
             "format": "text",
             "description": null,
@@ -776,7 +819,24 @@
             "maxLength": 15,
             "label": null,
             "item_label": "سؤال",
-            "value": [],
+            "value": [
+                {
+                    "lumina_faq_items.question": "كم تدوم الأظافر اللاصقة؟",
+                    "lumina_faq_items.answer": "تدوم عادةً من ٧ إلى ١٤ يوماً، ويعتمد ذلك على طريقة التركيب ومدى العناية بها."
+                },
+                {
+                    "lumina_faq_items.question": "هل تضر بالأظافر الطبيعية؟",
+                    "lumina_faq_items.answer": "لا، الأظافر واللاصق مصنوعان من مواد آمنة، ويمكن إزالتها بسهولة دون أي ضرر."
+                },
+                {
+                    "lumina_faq_items.question": "هل يمكن إعادة استخدامها؟",
+                    "lumina_faq_items.answer": "نعم، يمكن إعادة استخدام الطقم أكثر من مرة عند إزالته بلطف وحفظه في علبته."
+                },
+                {
+                    "lumina_faq_items.question": "ماذا لو لم يناسبني المقاس؟",
+                    "lumina_faq_items.answer": "يحتوي كل طقم على عدة مقاسات لتناسب جميع الأظافر، مع مبرد لضبط الشكل عند الحاجة."
+                }
+            ],
             "fields": [
                 {
                     "type": "string",
